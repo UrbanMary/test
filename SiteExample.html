@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Молодая группа</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1e40af'
+          },
+          fontSize: {
+            base: '1.125rem', // 18px
+            lg: '1.25rem',   // 20px
+            xl: '1.5rem',    // 24px
+            '2xl': '1.875rem',
+            '3xl': '2.25rem'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    nav{
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white dark:bg-gray-900 dark:text-white transition-colors duration-300">
+  <!-- Хедер -->
+  <header class="bg-primary text-white p-6 fixed top-0 w-full shadow z-10">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-2xl font-extrabold mb-2 md:mb-0">Наш Стартап</h1>
+      <nav style="text-align: center;" class="space-x-6 text-lg font-medium text-center">
+        <a href="#about" class="hover:underline">О нас</a>
+        <a href="#team" class="hover:underline">Команда</a>
+        <a href="#projects" class="hover:underline">Проекты</a>
+        <a href="#contact" class="hover:underline">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-28 space-y-24">
+    <!-- О нас -->
+    <section id="about" class="container mx-auto p-6 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
+      <h2 class="text-3xl font-bold mb-6">О нас</h2>
+      <p class="text-xl max-w-3xl leading-relaxed">Мы — команда молодых и амбициозных специалистов, которые хотят менять мир с помощью технологий. 
+        Наша цель — создавать полезные и удобные цифровые продукты.</p>
+    </section>
+
+    <!-- Команда -->
+    <section id="team" class="bg-gray-100 dark:bg-gray-800 py-16 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
+      <div class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold mb-8">Наша команда</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-xl">
+            <h3 class="text-xl font-semibold mb-2">Анна Иванова</h3>
+            <p class="text-lg">Разработчик фронтенда</p>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-xl">
+            <h3 class="text-xl font-semibold mb-2">Игорь Смирнов</h3>
+            <p class="text-lg">Бэкенд инженер</p>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-xl">
+            <h3 class="text-xl font-semibold mb-2">Мария Козлова</h3>
+            <p class="text-lg">UX/UI дизайнер</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="container mx-auto p-6 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
+      <h2 class="text-3xl font-bold mb-6">Наши проекты</h2>
+      <p class="text-xl max-w-3xl leading-relaxed">Сейчас мы работаем над приложением, которое помогает студентам и молодым специалистам находить стажировки и менторов в IT-сфере.</p>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="bg-gray-100 dark:bg-gray-800 py-16 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
+      <div class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold mb-6">Связаться с нами</h2>
+        <form class="max-w-xl space-y-6" onsubmit="sendMessage(event)">
+          <input type="text" placeholder="Ваше имя" class="w-full p-4 text-lg border rounded dark:bg-gray-700 dark:border-gray-600">
+          <input type="email" placeholder="Email" class="w-full p-4 text-lg border rounded dark:bg-gray-700 dark:border-gray-600">
+          <textarea placeholder="Сообщение" class="w-full p-4 text-lg border rounded dark:bg-gray-700 dark:border-gray-600"></textarea>
+          <button type="submit" class="bg-primary text-white text-lg font-semibold px-6 py-3 rounded-xl hover:bg-secondary transition">Отправить</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="bg-primary text-white text-center p-6">
+    <p class="text-lg">&copy; 2025 Наш Стартап. Все права защищены.</p>
+  </footer>
+
+  <!-- Анимация появления блоков при скролле -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+  <!-- Заглушка для отправки формы -->
+  <script>
+    function sendMessage(event) {
+      event.preventDefault();
+      alert("Спасибо! Ваше сообщение отправлено (заглушка). Можно подключить Telegram, Email API и т.д.");
+    }
+  </script>
+</body>
+</html>
