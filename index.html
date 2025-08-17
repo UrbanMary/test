@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Молодая группа</title>
+  <title>Пример</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -37,10 +37,10 @@
   </style>
 </head>
 <body class="font-sans text-gray-800 bg-white dark:bg-gray-900 dark:text-white transition-colors duration-300">
-  <!-- Хедер -->
+
   <header class="bg-primary text-white p-6 fixed top-0 w-full shadow z-10">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      <h1 class="text-2xl font-extrabold mb-2 md:mb-0">Наш Стартап</h1>
+      <h1 class="text-2xl font-extrabold mb-2 md:mb-0">Проект</h1>
       <nav style="text-align: center;" class="space-x-6 text-lg font-medium text-center">
         <a href="#about" class="hover:underline">О нас</a>
         <a href="#team" class="hover:underline">Команда</a>
@@ -51,14 +51,12 @@
   </header>
 
   <main class="pt-28 space-y-24">
-    <!-- О нас -->
     <section id="about" class="container mx-auto p-6 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
       <h2 class="text-3xl font-bold mb-6">О нас</h2>
       <p class="text-xl max-w-3xl leading-relaxed">Мы — команда молодых и амбициозных специалистов, которые хотят менять мир с помощью технологий. 
         Наша цель — создавать полезные и удобные цифровые продукты.</p>
     </section>
 
-    <!-- Команда -->
     <section id="team" class="bg-gray-100 dark:bg-gray-800 py-16 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
       <div class="container mx-auto p-6">
         <h2 class="text-3xl font-bold mb-8">Наша команда</h2>
@@ -79,13 +77,11 @@
       </div>
     </section>
 
-    <!-- Проекты -->
     <section id="projects" class="container mx-auto p-6 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
       <h2 class="text-3xl font-bold mb-6">Наши проекты</h2>
       <p class="text-xl max-w-3xl leading-relaxed">Сейчас мы работаем над приложением, которое помогает студентам и молодым специалистам находить стажировки и менторов в IT-сфере.</p>
     </section>
 
-    <!-- Контакты -->
     <section id="contact" class="bg-gray-100 dark:bg-gray-800 py-16 opacity-0 translate-y-10 transition-all duration-700 ease-in-out" data-animate>
       <div class="container mx-auto p-6">
         <h2 class="text-3xl font-bold mb-6">Связаться с нами</h2>
@@ -99,12 +95,9 @@
     </section>
   </main>
 
-  <!-- Футер -->
   <footer class="bg-primary text-white text-center p-6">
     <p class="text-lg">&copy; 2025 Наш Стартап. Все права защищены.</p>
   </footer>
-
-  <!-- Анимация появления блоков при скролле -->
   <script>
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -119,7 +112,7 @@
     });
   </script>
 
-  <!-- Заглушка для отправки формы -->
+
   <script>
     function sendMessage(event) {
       event.preventDefault();
@@ -128,3 +121,4 @@
   </script>
 </body>
 </html>
+
